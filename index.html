@@ -2,14 +2,12 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Mais recentes</title>
-
-<!-- A1Z26 -->
+<title>Inspiração?</title>
 
 <style>
   body {
     margin: 0;
-    background: black; /* FUNDO PRETO BASE */
+    background: black; 
     color: white;
     display: flex;
     align-items: center;
@@ -20,25 +18,26 @@
     overflow: hidden;
   }
 
-  /* IMAGEM DE FUNDO COM OPACIDADE 5% */
-  body::before {
-    content: "";
-    position: absolute;
+  /* FUNDO COMO CAMADA SEPARADA (funciona melhor no GitHub) */
+  .bg {
+    position: fixed;
     inset: 0;
     background-image: url("fundo.jpg");
     background-size: cover;
     background-position: center;
-    opacity: 0.05;
-    z-index: -1;
+    opacity: 0.10;      /* ← deixei 10% pra você VER que funciona */
+    z-index: 0;
   }
 
   .container {
     text-align: center;
     transform: translateY(-25px);
+    position: relative;
+    z-index: 1; /* garante que o conteúdo fica acima do fundo */
   }
 
   img {
-    width: 750px;
+    width: 650px;
     max-width: 95vw;
     display: block;
     margin: 0 auto 22px;
@@ -54,11 +53,13 @@
 
 <body>
 
+  <!-- CAMADA DE FUNDO -->
+  <div class="bg"></div>
+
   <div class="container">
-    <img src="CodigoFonte.jpg">
-    <div class="texto">Eu nunca falaria o verdadeiro.</div>
+    <img src="q.png">
+    <div class="texto">Eles queriam o nome mais famoso.</div>
   </div>
 
 </body>
 </html>
-
